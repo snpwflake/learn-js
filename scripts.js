@@ -6,14 +6,18 @@ postSize(message2); // вернет 8
 
 function postSize(message){
   let result;
-  let str = message.indexOf('https://');
-  if (str < 0){
-    result = message.length;
-  }
-  else{
-    result = str;
-  };
-
-  console.log(result);
+  let str = message.split(' ');
+  let arr = [];
+  let i = 0;
+  str.forEach(element => {
+    if (element.indexOf('https://') < 0 ){
+      arr.push(element)
+    }
+    else{
+      i += 1;
+    }
+  });
+  result = arr.join(' ').length + i;
+  console.log(result)
   return result;
 }
