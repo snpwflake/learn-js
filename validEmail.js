@@ -125,6 +125,7 @@ function itsUrl(href) {
       error = 'Ошибка 6';
       result = false;
     }
+    
     if (result === true) {
       href = useProtocol + href;
       if (href === hostname) {
@@ -140,9 +141,9 @@ function itsUrl(href) {
 }
 function validEmail(email) {
   let error = 'E-mail не подходит';
-  if (email.indexOf('@')>=8) {
+  if (email.indexOf('@') >= 8) {
     email = email.split('@');
-    if (email.length!=2) {
+    if (email.length !== 2) {
       return error;
     }
   }
@@ -169,3 +170,5 @@ console.log(validEmail('burt0921@primer.tu'))
 console.log(validEmail('vk.com'))
 console.log(validEmail('123asd@yalego.ru'))
 console.log(validEmail('timyr.278@gmail.com'))
+console.log('timyr2780@github.com/')
+console.log(validEmail('timyr2780@github.com/'))
