@@ -1,5 +1,5 @@
 html, body{
-  margin: 0 0;
+  margin: 0 auto;
   width: 100%;
   font-family: 'Lato', sans-serif;
 }
@@ -14,8 +14,8 @@ button{
 }
 
 .header{
-  border: 2px solid black;
   width: 360px;
+  margin: 0 auto;
 }
 
 .logo{
@@ -53,4 +53,39 @@ button{
   background-color: #FFFFFF;
   color: #0057FF;
   border: 1px solid #0057FF;
+}
+.preview_img{
+  height: 160px;
+}
+/*Статистика*/
+.statistics{
+  margin: 0 auto;
+  width: 360px;
+  background-color: #0057FF;
+  padding: 36px 0;
+  display: grid;
+  grid-template-columns: auto;
+  text-align: center;
+  row-gap: 16px;
+}
+.stats{
+  display: flex;
+  flex-direction: column;
+}
+[class*="_count"]{
+  color: #FFFFFF;
+  font-size: 48px;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+.user_count{
+  font-size: 48px;
+  -webkit-text-stroke: 0.6px #000;
+  text-shadow: 0px 4px 4px #000;
+}
+.text{
+  color:#FFFFFF;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
 }
