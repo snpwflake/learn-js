@@ -66,39 +66,37 @@ function checkSite(str) {
   if (useprotocol[0] === true) {
     site = useprotocol[1] + site;
   }
-  //Добавляем протокол, если его нет
+  // Добавляем протокол, если его нет
   if (mas.length > 1) {
     site += '/';
   }
   if (result === true) {
-    //console.log(site);
+    // console.log(site);
     return site;
   }
   return '';
 }
 
-function Find_Url(text){
-  let arrStr =[];
-  let newText = text.split(' ')
-  //Перебираем текст и находим сайты, добавляя их в массив
-  newText.forEach(str =>{
-    if (checkSite(str).length>1){
+function Find_Url(text) {
+  const arrStr = [];
+  const newText = text.split(' ');
+  // Перебираем текст и находим сайты, добавляя их в массив
+  newText.forEach((str) => {
+    if (checkSite(str).length > 1) {
       arrStr.push(checkSite(str));
     }
-  })
-  //Перебираем массив с сайтами и находим их в тексте.
-  arrStr.forEach(str =>{
-    if (str.indexOf('https://') >= 0 || str.indexOf('http://') >= 0){
+  });
+  // Перебираем массив с сайтами и находим их в тексте.
+  arrStr.forEach((str) => {
+    if (str.indexOf('https://') >= 0 || str.indexOf('http://') >= 0) {
       newStr = str;
+    } else {
+      newStr = `https://${str}`;
     }
-    else{
-      newStr = 'https://' + str;
-    }
-    //Делаем их кликабельными в HTML
-    text = text.replace(str,`<a href='${newStr}'>${str}</a>`)
-  })
-  //Возращаем готовый результат
+    // Делаем их кликабельными в HTML
+    text = text.replace(str, `<a href='${newStr}'>${str}</a>`);
+  });
+  // Возращаем готовый результат
   return text;
-};
-console.log(Find_Url('Есть у нас такая строка с сайтами vk.com edu.burtovoy.org123, а также https://youtube.com'))
-
+}
+console.log(Find_Url('Есть у нас такая строка с сайтами vk.com edu.burtovoy.org123, а также https://youtube.com'));
