@@ -1,7 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-loop-func */
-/* eslint-disable max-len */
 function itsUrl(href) {
   let result = true;
   let error;
