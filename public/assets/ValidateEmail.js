@@ -150,12 +150,3 @@ function validEmail(email) {
 
   return error;
 }
-console.log(validEmail('tim 12.278@gmail.com'));
-console.log(validEmail('sobaka123@@8@vk.co'));
-console.log(validEmail('timyr278@yaleg-o.com'));
-console.log(validEmail('burt0921@primer.tu'));
-console.log(validEmail('vk.com'));
-console.log(validEmail('123asd@yalego.ru'));
-console.log(validEmail('timyr.278@gmail.com'));
-console.log('timyr2780@github.com/');
-console.log(validEmail('timyr2780@github.com/'));
