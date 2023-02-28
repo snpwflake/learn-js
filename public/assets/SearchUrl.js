@@ -99,4 +99,3 @@ function Find_Url(text) {
   // Возращаем готовый результат
   return text;
 }
-console.log(Find_Url('Есть у нас такая строка с сайтами vk.com edu.burtovoy.org123, а также https://youtube.com'));
