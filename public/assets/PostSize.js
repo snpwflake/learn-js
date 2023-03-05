@@ -72,7 +72,9 @@ function SearchURL(href) {
   // Проверка на путь, поисковый запрос, хэш
   let pathname;
   let search;
+
   let hash = '';
+
   if (path.indexOf('?') > 0) {
     pathname = path.substr(0, path.indexOf('?'));
     search = path.substr(path.indexOf('?'));
@@ -102,6 +104,7 @@ function SearchURL(href) {
       error = 'Ошибка 5';
       result = false;
     }
+
     if (sortSymb(tempHostname[i]) === false) {
       error = 'Ошибка 4';
       result = false;
@@ -121,6 +124,7 @@ function SearchURL(href) {
     result = false;
   }
   if (result === true) {
+
     newHref = useProtocol + href;
     return [result, href];
   }
@@ -143,5 +147,6 @@ export default function postSize(message) {
       sum -= result[1].length;
     }
   });
+
   return sum;
 }

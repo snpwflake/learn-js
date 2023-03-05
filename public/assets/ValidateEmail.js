@@ -1,3 +1,4 @@
+
 function sortSymb(str) {
   str.split('').forEach((symbol) => {
     const char = symbol.toLowerCase().charCodeAt();
@@ -102,6 +103,7 @@ function SearchURL(href) {
       error = 'Ошибка 5';
       result = false;
     }
+
     if (sortSymb(tempHostname[i]) === false) {
       error = 'Ошибка 4';
       result = false;
