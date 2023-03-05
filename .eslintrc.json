@@ -11,6 +11,7 @@
     },
     "rules": {
       "import/extensions": ["error", "ignorePackages", {"js": "always"}],
+      "linebreak-style": 0,
       "prefer-arrow-callback": 0,
       "mocha/prefer-arrow-callback": 2
     },
