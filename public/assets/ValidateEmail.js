@@ -91,7 +91,6 @@ function SearchURL(href) {
     search = '';
     hash = '';
   }
-  console.log(hash);
   // Проверка латиницу, кириллицу и символы
   const tempHostname = hostname.split('.');
   for (let i = 0; i < tempHostname.length - 1; i += 1) {
@@ -124,13 +123,14 @@ function SearchURL(href) {
   if (result === true) {
     newHref = useProtocol + newHref;
     if (hostname === newHref) {
-      return [result];
+      return [result, newHref];
     }
   }
+  result = false;
   return [result, error];
 }
 
-function validEmail(email) {
+export default function validEmail(email) {
   const error = 'E-mail не подходит';
   let newEmail;
   if (email.indexOf('@') >= 7) {
@@ -148,9 +148,7 @@ function validEmail(email) {
     return error;
   }
   if (SearchURL(newEmail[1])[0] === true) {
-    console.log(email);
     return 'E-mail подходит';
   }
   return error;
 }
-validEmail('timyr.278@gmail.com');

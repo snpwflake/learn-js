@@ -91,7 +91,6 @@ function SearchURL(href) {
     search = '';
     hash = '';
   }
-  console.log(hash);
   // Проверка латиницу, кириллицу и символы
   const tempHostname = hostname.split('.');
   for (let i = 0; i < tempHostname.length - 1; i += 1) {
@@ -128,7 +127,7 @@ function SearchURL(href) {
   return [result, error];
 }
 
-function postSize(message) {
+export default function postSize(message) {
   let result;
   let sum = message.length;
   message.split(' ').forEach((str) => {
@@ -146,9 +145,3 @@ function postSize(message) {
   });
   return sum;
 }
-
-const message1 = 'Всем привет!';
-console.log(postSize(message1)); // вернет 12
-
-const message2 = 'Привет! https://githu--b.com vk.com https://1213-asd.ru;;';
-console.log(postSize(message2)); // вернет 32

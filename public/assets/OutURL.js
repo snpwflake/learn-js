@@ -91,7 +91,6 @@ function SearchURL(href) {
     search = '';
     hash = '';
   }
-  console.log(hash);
   // Проверка латиницу, кириллицу и символы
   const tempHostname = hostname.split('.');
   for (let i = 0; i < tempHostname.length - 1; i += 1) {
@@ -128,7 +127,7 @@ function SearchURL(href) {
   return [result, error];
 }
 
-function OutURL(message) {
+export default function OutURL(message) {
   let result;
   const mesResult = message.split(' ');
   for (let index = 0; index < mesResult.length; index += 1) {
@@ -150,5 +149,3 @@ function OutURL(message) {
   }
   return mesResult.join(' ');
 }
-
-console.log(OutURL('какая то строка с ссылкой например: vk.com https://vk.com'));
