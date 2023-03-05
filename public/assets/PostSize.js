@@ -91,7 +91,7 @@ function SearchURL(href) {
     search = '';
     hash = '';
   }
-  const origin = useProtocol + hostname + port;
+  console.log(hash);
   // Проверка латиницу, кириллицу и символы
   const tempHostname = hostname.split('.');
   for (let i = 0; i < tempHostname.length - 1; i += 1) {
