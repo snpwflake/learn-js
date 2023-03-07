@@ -1,4 +1,3 @@
-
 function sortSymb(str) {
   str.split('').forEach((symbol) => {
     const char = symbol.toLowerCase().charCodeAt();
@@ -103,7 +102,6 @@ function SearchURL(href) {
       error = 'Ошибка 5';
       result = false;
     }
-
     if (sortSymb(tempHostname[i]) === false) {
       error = 'Ошибка 4';
       result = false;
@@ -123,34 +121,31 @@ function SearchURL(href) {
     result = false;
   }
   if (result === true) {
-    newHref = useProtocol + newHref;
-    if (hostname === newHref) {
-      return [result, newHref];
-    }
+    newHref = useProtocol + href;
+    return [result, href];
   }
-  result = false;
   return [result, error];
 }
 
-export default function validEmail(email) {
-  const error = 'E-mail не подходит';
-  let newEmail;
-  if (email.indexOf('@') >= 7) {
-    newEmail = email.split('@');
-    if (newEmail.length !== 2) {
-      console.log(1);
-      return error;
+export default function OutURL(message) {
+  let result;
+  const mesResult = message.split(' ');
+  for (let index = 0; index < mesResult.length; index += 1) {
+    let foo = mesResult[index];
+    for (let i = 0; i < mesResult[index].length; i += 1) {
+      const boo = foo.length - 1;
+      if (foo[boo] === ';' || foo[boo] === '!' || foo[boo] === '?' || foo[boo] === ',' || foo[boo] === '.' || foo[boo] === ':' || foo[boo] === '/') {
+        foo = foo.substr(0, foo.length - 1);
+      }
     }
-  } else {
-    console.log(2);
-    return error;
+    result = SearchURL(foo);
+    if (result[0] === true) {
+      if (mesResult[index].indexOf('https://') === -1 || mesResult[index] === -1) {
+        mesResult[index] = `<a href="https://${result[1]}">${result[1]}</a>`;
+      } else {
+        mesResult[index] = `<a href="${result[1]}">${result[1]}</a>`;
+      }
+    }
   }
-  if (newEmail[0].indexOf(' ') > 0) {
-    console.log(3);
-    return error;
-  }
-  if (SearchURL(newEmail[1])[0] === true) {
-    return 'E-mail подходит';
-  }
-  return error;
+  return mesResult.join(' ');
 }

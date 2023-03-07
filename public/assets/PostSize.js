@@ -1,4 +1,17 @@
-function itsUrl(href) {
+function sortSymb(str) {
+  str.split('').forEach((symbol) => {
+    const char = symbol.toLowerCase().charCodeAt();
+    const rangeEng = char >= 96 && char <= 122;
+    const rangeRus = char >= 1072 && char <= 1103;
+    const rangSymb = (char >= 48 && char <= 57) || char === 45;
+    if (rangeEng === false && rangeRus === false && rangSymb === false) {
+      return false;
+    }
+    return true;
+  });
+}
+
+function SearchURL(href) {
   let result = true;
   let error;
   let domenFirstLvl = 'com.net.org.info.biz.name.aero.arpa.edu.int.gov.mil.coop.museum.mobi.pro.tel.travel.xxx.ac.ad.ae.af.ag.ai.al.am.an.ao.aq.ar.as.at.au.aw.az.ba.bb.bd.be.bf.bg.bh.bi.bj.bm.bn.bo.br.bs.bt.bv.bw.by.bz.ca.cc.cd.cf.cg.ch.ci.ck.cl.cm.cn.co.cr.cu.cv.cx.cy.cz.de.dj.dk.dm.do.dz.ec.ee.eg.eh.er.es.et.eu.fi.fj.fk.fm.fo.fr.ga.gd.ge.gf.gg.gh.gi.gl.gm.gn.gp.gq.gr.gs.gt.gu.gw.gy.hk.hm.hn.hr.ht.hu.id.ie.il.im.in.io.iq.ir.is.it.je.jm.jo.jp.ke.kg.kh.ki.km.kn.kp.kr.kw.ky.kz.la.lb.lc.li.lk.lr.ls.lt.lu.lv.ly.ma.mc.md.mg.mh.mk.ml.mm.mn.mo.mp.mq.mr.ms.mt.mu.mv.mw.mx.my.mz.na.nc.ne.nf.ng.nl.no.np.nr.nu.nz.om.pa.pe.pf.pg.ph.pk.pl.pm.pn.pr.ps.pt.pw.py.qa.re.ro.ru.rw.sa.sb.sc.sd.se.sg.sh.si.sj.sk.sl.sm.sn.so.sr.st.su.sv.sy.sz.tc.td.tf.tg.th.tj.tk.tm.tn.to.tp.tr.tt.tv.tw.tz.ua.ug.uk.um.us.uy.uz.va.vc.ve.vg.vi.vn.vu.wf.ws.ye.yt.yu.za.zm.zw';
@@ -7,24 +20,23 @@ function itsUrl(href) {
   const protocol = href.split('//')[0];
   const protocols = ['https:', 'http:'];
   let useProtocol = '';
+  let newHref = href;
   protocols.forEach((str) => {
     if (str === protocol) {
       useProtocol = `${protocol}//`;
-      href = href.split('//')[1];
+      newHref = href.split('//')[1].toString();
     }
   });
-
   let host;
   let path;
   // Проверка на хост и путь
-  if (href.indexOf('/') > 0) {
-    host = href.substr(0, href.indexOf('/'));
-    path = href.substr(href.indexOf('/'));
+  if (newHref.indexOf('/') > 0) {
+    host = newHref.substr(0, newHref.indexOf('/'));
+    path = newHref.substr(newHref.indexOf('/'));
   } else {
-    host = href;
+    host = newHref;
     path = '';
   }
-
   let hostname;
   let port;
   // Проверка на домен и порт
@@ -46,8 +58,7 @@ function itsUrl(href) {
   }
   if (port.length > 0) {
     port = port.substr(1);
-    if (port >= 0 & port <= 65535) {
-    } else {
+    if (port <= 0 || port >= 65535) {
       error = 'Ошибка 10';
       result = false;
     }
@@ -61,7 +72,9 @@ function itsUrl(href) {
   // Проверка на путь, поисковый запрос, хэш
   let pathname;
   let search;
-  let hash;
+
+  let hash = '';
+
   if (path.indexOf('?') > 0) {
     pathname = path.substr(0, path.indexOf('?'));
     search = path.substr(path.indexOf('?'));
@@ -80,8 +93,6 @@ function itsUrl(href) {
     search = '';
     hash = '';
   }
-  const origin = useProtocol + hostname + port;
-
   // Проверка латиницу, кириллицу и символы
   const tempHostname = hostname.split('.');
   for (let i = 0; i < tempHostname.length - 1; i += 1) {
@@ -93,14 +104,11 @@ function itsUrl(href) {
       error = 'Ошибка 5';
       result = false;
     }
-    tempHostname[i].split('').forEach((char) => {
-      char = char.toLowerCase().charCodeAt();
-      if ((char > 96 & char < 123) || char === 45 || (char > 47 & char < 58) || (char > 1071 & char < 1104)) {
-      } else {
-        error = 'Ошибка 4';
-        result = false;
-      }
-    });
+
+    if (sortSymb(tempHostname[i]) === false) {
+      error = 'Ошибка 4';
+      result = false;
+    }
   }
   if (result === false) {
     return [false, error];
@@ -116,32 +124,29 @@ function itsUrl(href) {
     result = false;
   }
   if (result === true) {
-    href = useProtocol + href;
+
+    newHref = useProtocol + href;
     return [result, href];
   }
-
   return [result, error];
 }
 
-const message1 = 'Всем привет!';
-postSize(message1); // вернет 12
-
-const message2 = 'Привет! https://githu--b.com; http://www.tigir.com/ https://ya.ru/ vk.com ПРИВЕТ.ru https://ru.stack1overflow.com/questions/611546/Прервать-цикл-foreach-javascript';
-postSize(message2); // вернет 34
-
-function postSize(message) {
-  sum = message.length;
-  message = message.split(' ');
-  message.forEach((str) => {
+export default function postSize(message) {
+  let result;
+  let sum = message.length;
+  message.split(' ').forEach((str) => {
+    let foo = str;
     for (let i = 0; i < str.length; i += 1) {
-      if (str[str.length - 1] === ';' || str[str.length - 1] === '!' || str[str.length - 1] === '?' || str[str.length - 1] === ',' || str[str.length - 1] === '.' || str[str.length - 1] === ':') {
-        str = str.substr(0, str.length - 1);
+      const boo = foo.length - 1;
+      if (foo[boo] === ';' || foo[boo] === '!' || foo[boo] === '?' || foo[boo] === ',' || foo[boo] === '.' || foo[boo] === ':' || foo[boo] === '/') {
+        foo = foo.substr(0, foo.length - 1);
       }
     }
-    result = itsUrl(str);
+    result = SearchURL(foo);
     if (result[0] === true) {
       sum -= result[1].length;
     }
   });
-  console.log(sum);
+
+  return sum;
 }
