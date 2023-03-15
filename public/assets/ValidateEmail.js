@@ -138,15 +138,12 @@ export default function validEmail(email) {
   if (email.indexOf('@') >= 7) {
     newEmail = email.split('@');
     if (newEmail.length !== 2) {
-      console.log(1);
       return error;
     }
   } else {
-    console.log(2);
     return error;
   }
   if (newEmail[0].indexOf(' ') > 0) {
-    console.log(3);
     return error;
   }
   if (SearchURL(newEmail[1])[0] === true) {
