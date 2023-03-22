@@ -20,4 +20,7 @@ describe('Функция для нахождения хэштегов', function
   it('Строка из одного хэштега', function () {
     assert.equal('<a href="/search?tag="LoL">#LoL</a>', HashTag('#LoL'));
   });
+  it('Хэштег с символом рядом', function () {
+    assert.equal('как вам новая версия <a href="/search?tag="javascript">#javascript</a>? <a href="/search?tag="javascript">#javascript</a>?? <a href="/search?tag="javascript">#javascript</a>??:::;ж?', HashTag('как вам новая версия #javascript? #javascript? #javascript?:::;ж'));
+  });
 });
