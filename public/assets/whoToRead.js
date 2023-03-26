@@ -18,7 +18,7 @@ function findHashTags(str) {
   return result;
 }
 
-function whoToRead(profile, newProfiles, count) {
+export default function whoToRead(profile, newProfiles, count) {
   let newCount = count;
   const profiles = newProfiles;
   if (newCount > profiles.length) {
@@ -111,12 +111,3 @@ const profile2 = {
     '#зло выглядит #ужасно',
   ],
 };
-whoToRead(profile, profiles, 1);
-whoToRead(profile, profiles, 5);
-whoToRead(profile, profiles, 10);
-whoToRead(profile1, profiles, 1);
-whoToRead(profile1, profiles, 5);
-whoToRead(profile1, profiles, 10);
-whoToRead(profile2, profiles, 1);
-whoToRead(profile2, profiles, 2);
-whoToRead(profile2, profiles, 3);
