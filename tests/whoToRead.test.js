@@ -1,8 +1,8 @@
 import { assert } from 'chai';
 import whoToRead from '../public/assets/whoToRead.js';
 
-describe('Функция для вывода пройденного времени после опубликования поста', function () {
-  it('С первым профилем', function () {
+describe('Функция для подбора постов для пользователя по хэштегам в его посте', function () {
+  it('Первый профиль вывод схожих постов до 3 пользователей', function () {
     const profile = {
       id: 255,
       posts: [
@@ -45,7 +45,7 @@ describe('Функция для вывода пройденного времен
     ];
     assert.equal([258, 256, 512].toString(), whoToRead(profile, profiles, 3).toString());
   });
-  it('С вторым профилем', function () {
+  it('Второй профиль c выводом до 5 схожих постов', function () {
     const profile1 = {
       id: 251,
       posts: [
@@ -86,10 +86,10 @@ describe('Функция для вывода пройденного времен
         ],
       },
     ];
-    let result = [512, 258, 256, 257, 1024].toString();
+    const result = [512, 258, 256, 257, 1024].toString();
     assert.equal(result, whoToRead(profile1, profiles, 5).toString());
   });
-  it('С третьим профилем', function () {
+  it('Третий профиль, вывод схожих постов до 8 пользователей', function () {
     const profiles = [
       {
         id: 257,
@@ -130,7 +130,7 @@ describe('Функция для вывода пройденного времен
         '#зло выглядит #ужасно',
       ],
     };
-    let result = [1024, 512, 256, 257, 258].toString();
+    const result = [1024, 512, 256, 257, 258].toString();
     assert.equal(result, whoToRead(profile2, profiles, 8).toString());
   });
 });

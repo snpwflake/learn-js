@@ -73,25 +73,25 @@ function SearchURL(href) {
   let pathname;
   let search;
 
-  let hash = '';
+  // let hash = '';
 
   if (path.indexOf('?') > 0) {
     pathname = path.substr(0, path.indexOf('?'));
     search = path.substr(path.indexOf('?'));
     if (search.indexOf('#') > 0) {
       search = search.substr(0, search.indexOf('#'));
-      hash = path.substr(path.indexOf('#'));
+      // hash = path.substr(path.indexOf('#'));
     } else {
-      hash = '';
+      // hash = '';
     }
   } else if (path.indexOf('#') > 0) {
     pathname.substr(0, path.indexOf('#'));
     search = '';
-    hash = path.substr(path.indexOf('#'));
+    // hash = path.substr(path.indexOf('#'));
   } else {
     pathname = path;
     search = '';
-    hash = '';
+    // hash = '';
   }
   // Проверка латиницу, кириллицу и символы
   const tempHostname = hostname.split('.');
@@ -124,7 +124,6 @@ function SearchURL(href) {
     result = false;
   }
   if (result === true) {
-
     newHref = useProtocol + href;
     return [result, href];
   }

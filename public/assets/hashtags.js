@@ -17,4 +17,3 @@ export default function HashTag(str) {
   const result = stroke.join(' ');
   return result;
 }
-console.log(HashTag('как вам новая версия #javascript? #javascript? #javascript?:::;ж'));
