@@ -6,7 +6,7 @@ describe('Функция для нахождения хэштегов', function
     assert.equal('Кто еще изучает хэштег?', HashTag('Кто еще изучает хэштег?'));
   });
   it('Строка с хэштегом', function () {
-    assert.equal('Кто еще изучает <a href="/search?tag="javascript">#javascript</a> ?', HashTag('Кто еще изучает #javascript ?'));
+    assert.equal('Кто еще изучает <a href="/search?tag="javascript">#javascript</a>?', HashTag('Кто еще изучает #javascript?'));
   });
   it('Строка из хэштегов', function () {
     assert.equal('<a href="/search?tag="победа">#победа</a> <a href="/search?tag="Tesla">#Tesla</a> <a href="/search?tag="hello">#hello</a> <a href="/search?tag="Molodec">#Molodec</a>', HashTag('#победа #Tesla #hello #Molodec'));
@@ -19,5 +19,8 @@ describe('Функция для нахождения хэштегов', function
   });
   it('Строка из одного хэштега', function () {
     assert.equal('<a href="/search?tag="LoL">#LoL</a>', HashTag('#LoL'));
+  });
+  it('Хэштег с символом рядом', function () {
+    assert.equal('как вам новая версия <a href="/search?tag="javascript">#javascript</a>? <a href="/search?tag="javascript">#javascript</a>?? <a href="/search?tag="javascript">#javascript</a>??:::;ж?', HashTag('как вам новая версия #javascript? #javascript? #javascript?:::;ж'));
   });
 });
