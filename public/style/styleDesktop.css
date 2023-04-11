@@ -2,20 +2,30 @@
   body {
     width: 1280px;
   }
+
+  [class*="_button"] {
+    width: 260px;
+  }
+
+  /*Header*/
   header {
-    margin: 0 auto;
+    position: relative;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2,640px);
+    background-color: #FFFFFF;
+    z-index: 1;
+    width: 100%;
   }
 
   header svg {
     height: 44px;
     width: 42px;
   }
+
   .preview {
     align-items: start;
     margin: 42px 166px 138px 64px;
-    width: 100%;
+    width: 640px;
   }
 
   .preview span {
@@ -27,29 +37,56 @@
     height: 232px;
   }
 
-  .signup_button {
-  }
-  .signin_button {
-  }
   header .HomeMobile {
     display: none;
   }
+
   header .HomeDesktop {
     display: block;
+    background: #F4F5F7;
   }
+
   /*Header*/
+
+  main {
+    background: #F4F5F7;
+  }
+
+  /*Statistic*/
   .statistics {
+    padding: 0;
+    position: relative;
+    margin: 0 auto;
+    height: 274px;
+    width: 960px;
+    border-radius: 10px;
+    z-index: 0;
+
+    display: grid;
+    grid-template-columns: repeat(3,200px);
+    justify-content: center;
+    column-gap: 100px;
+    margin-top: -32px;
   }
+  
   .stats {
+    margin-top: 64px;
   }
-  .reg_count {
+
+  [class*="_count"] {
+    font-size: 72px;
+    line-height: 86px;
   }
+
   .stats_text {
+    margin-top: 16px;
+    font-size: 18px;
+    line-height: 22px;
   }
-  .send_mess_count {
-  }
-  .send_now_count {
-  }
+
+  /*Statistic*/
+
+  /*Posts*/
   .views_posts {
   }
   .last_messages {
@@ -82,6 +119,11 @@
   }
   .img_in_post {
   }
+  /*Posts*/
+
+  /*Footer*/
   .footer_preview {
   }
+
+  /*Footer*/
 }

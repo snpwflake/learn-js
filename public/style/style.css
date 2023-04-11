@@ -16,6 +16,7 @@ body {
   border-radius: 10px;
   cursor: pointer;
 }
+
 header {
   margin-bottom: -4px;
 }
@@ -216,10 +217,12 @@ header .HomeMobile {
   cursor: pointer;
   user-select: none;
 }
+
 hr {
   margin: 16px 0 16px;
   border: 1px solid #E9E9E9;
 }
+
 .img_in_post {
   margin-top: 10px;
   max-width: 425px;
@@ -232,7 +235,7 @@ hr {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 31px 16px 36px;
+  margin: 0px 16px 36px;
 }
 
 .footer_preview span {
