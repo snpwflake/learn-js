@@ -1,0 +1,87 @@
+@media (min-width:600px) {
+  body {
+    width: 1280px;
+  }
+  header {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  header svg {
+    height: 44px;
+    width: 42px;
+  }
+  .preview {
+    align-items: start;
+    margin: 42px 166px 138px 64px;
+    width: 100%;
+  }
+
+  .preview span {
+    text-align: start;
+    font-style: normal;
+    font-size: 46px;
+    line-height: 58px;
+    width: 410px;
+    height: 232px;
+  }
+
+  .signup_button {
+  }
+  .signin_button {
+  }
+  header .HomeMobile {
+    display: none;
+  }
+  header .HomeDesktop {
+    display: block;
+  }
+  /*Header*/
+  .statistics {
+  }
+  .stats {
+  }
+  .reg_count {
+  }
+  .stats_text {
+  }
+  .send_mess_count {
+  }
+  .send_now_count {
+  }
+  .views_posts {
+  }
+  .last_messages {
+  }
+  .post {
+  }
+  .user-icon {
+  }
+  .post_content {
+  }
+  .post_header {
+  }
+  .username_nickname {
+  }
+  .username {
+  }
+  .nickname {
+  }
+  .time-create {
+  }
+  .post_text {
+  }
+  .post_statistics {
+  }
+  .repost {
+  }
+  .like {
+  }
+  .save {
+  }
+  .img_in_post {
+  }
+  .footer_preview {
+  }
+}
