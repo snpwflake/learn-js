@@ -111,12 +111,11 @@ header .HomeMobile {
 
 .last_messages {
   margin-left: 16px;
-
+  margin-top: 24px;
   display: block;
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
-  margin-bottom: 24px;
 }
 
 .post {
@@ -204,18 +203,24 @@ header .HomeMobile {
   border-radius: 10%;
   cursor: pointer;
   user-select: none;
+  display: flex;
+  align-items: center;
 }
 
 .like {
   border-radius: 10%;
   cursor: pointer;
   user-select: none;
+  display: flex;
+  align-items: center;
 }
 
 .save {
   border-radius: 10%;
   cursor: pointer;
   user-select: none;
+  display: flex;
+  align-items: center;
 }
 
 hr {
@@ -228,6 +233,10 @@ hr {
   max-width: 425px;
   width: 100%;
   border-radius: 20px;
+}
+
+.actually {
+  display: none;
 }
 
 /*Footer*/
