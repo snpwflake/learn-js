@@ -321,7 +321,7 @@
     text-align: center;
     margin-bottom: 32px;
   }
-  .footer_buttons {
+  .footer-buttons {
     justify-content: center;
     display: flex;
     flex-direction: row;
@@ -329,11 +329,11 @@
     width: 100%;
     margin: 0 auto;
   }
-  .footer_buttons button {
+  .footer-buttons a {
     margin: 0 0;
     width: 260px;
   }
-  .footer_buttons .signin_button {
+  .footer-buttons .signin_button {
     margin-left: 16px;
   }
   /*Footer*/
