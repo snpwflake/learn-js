@@ -1,23 +1,5 @@
 import timeLater from './assets/timeLater.js';
 
-fetch('data.json').then((data) => data.text()).then((data) => {
-  const temp = JSON.parse(data);
-  const statics = document.querySelectorAll('.stats_count');
-  statics[0].innerText = temp.static.signUp;
-  statics[1].innerText = temp.static.sendMessages;
-  statics[2].innerText = temp.static.sendToday;
-
-  const maxCountPost = 5;
-  const viewPost = document.querySelectorAll('.post');
-  for (let i = viewPost.length; i <= maxCountPost; i += 1) {
-    createPost();
-  }
-  const viewPostCreated = document.querySelectorAll('.post');
-  for (let i = 0; i <= maxCountPost; i += 1) {
-    dataPost(temp.lastMessages[i], viewPostCreated[i]);
-  }
-});
-
 function createPost() {
   const div = document.createElement('div');
   const hr = document.createElement('hr');
@@ -37,6 +19,7 @@ function dataPost(indexUser, indexPost) {
   const like = indexPost.querySelector('.like').querySelector('span');
   const repost = indexPost.querySelector('.repost').querySelector('span');
   const save = indexPost.querySelector('.save').querySelector('span');
+
   avatar.src = indexUser.avatar;
   userName.innerHTML = indexUser.username;
   nickName.innerHTML = indexUser.nickname;
@@ -46,3 +29,21 @@ function dataPost(indexUser, indexPost) {
   save.innerHTML = indexUser.save;
   repost.innerHTML = indexUser.repost;
 }
+
+fetch('data.json').then((data) => data.text()).then((data) => {
+  const temp = JSON.parse(data);
+  const statics = document.querySelectorAll('.stats_count');
+  statics[0].innerText = temp.static.signUp;
+  statics[1].innerText = temp.static.sendMessages;
+  statics[2].innerText = temp.static.sendToday;
+
+  const maxCountPost = 5;
+  const viewPost = document.querySelectorAll('.post');
+  for (let i = viewPost.length; i <= maxCountPost; i += 1) {
+    createPost();
+  }
+  const viewPostCreated = document.querySelectorAll('.post');
+  for (let i = 0; i <= maxCountPost; i += 1) {
+    dataPost(temp.lastMessages[i], viewPostCreated[i]);
+  }
+});
