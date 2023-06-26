@@ -4,7 +4,52 @@
     "sendMessages": 31,
     "sendToday": 41
   },
-  "lastMessages": [],
+  "lastMessages": [
+    {
+      "id": 258,
+      "avatar": "http://127.0.0.1:5500/public/img/user_img/roizmangbn_image.jpg",
+      "username": "Timur Basyrov",
+      "nickname": "@Basyr0v",
+      "timecreate": 29077118,
+      "text": "heelo my name is Timur",
+      "like": 123,
+      "repost": 123,
+      "save": 234
+    },
+    {
+      "id": 252,
+      "avatar": "http://127.0.0.1:5500/public/img/user_img/user_elonmask.jpg",
+      "username": "Timur Basyrov",
+      "nickname": "@username",
+      "timecreate": 1234567,
+      "text": "heelo my name is Timur",
+      "like": 123,
+      "repost": 123,
+      "save": 234
+    },
+    {
+      "id": 218,
+      "avatar": "http://127.0.0.1:5500/public/img/user_img/user_burtovoy.jpg",
+      "username": "Timur Basyrov",
+      "nickname": "@username",
+      "timecreate": 123,
+      "text": "heelo my name is Timur",
+      "like": 123,
+      "repost": 123,
+      "save": 234
+    },
+    {
+      "id": 248,
+      "avatar": "http://127.0.0.1:5500/public/img/user_img/user_madam.jpg",
+      "username": "Timur Basyrov",
+      "nickname": "@username",
+      "timecreate": 2907718,
+      "text": "heelo my name is Timur",
+      "like": 123,
+      "repost": 123,
+      "save": 234
+    }
+  ],
   "topics": [],
   "blogs": []
 }
