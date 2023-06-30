@@ -1,139 +1,164 @@
-*{
-	padding: 0;
-	margin: 0;
-	border: 0;
-}
-body {
-  font-family: 'Lato', sans-serif;
-  margin: 0 auto;
-  min-width: 360px; 
-}
-/*Home page/header*/
-[class*="_button"] {
-  text-decoration: none;
-  width: 328px;
-  padding: 15px 0;
-  text-align: center;
-  border-radius: 10px;
-  cursor: pointer;
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
+body {
+  margin: 0 auto;
+  min-width: 360px;
+  max-width: 560px;
+}
+
+/*Header*/
 header {
   margin-bottom: -4px;
 }
 
-.preview span {
-  width: 328px;
-  margin-top: 22px;
-
-  text-align: center;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 38px;
-  text-align: center;
-}
-
-.preview {
-  margin: 24px 16px;
+.header_container {
+  margin: 0 8px;
+  padding-top: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.signup_button {
-  margin-top: 24px;
-  background-color: #0057FF;
-  color: #FFFFFF;
-
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
-}
-
-.signin_button {
-  margin-top: 16px;
-  
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
+.header_container span {
+  margin-top: 22px;
+  font-family: 'Noto', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
   text-align: center;
-  color: #0057FF;
-  background-color: #FFFFFF;
-  border: 1px solid #0057FF;
 }
 
-header .HomeDesktop{
+/*Кнопки регистрации и входа*/
+.buttons_up {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.button_signup {
+  background-color: #0057FF;
+  width: 328px;
+  padding: 15px 0;
+  color: #FFF;
+  text-align: center;
+  border-radius: 10px;
+
+  font-family: 'Noto', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+}
+
+.button_signin {
+  margin-top: 16px;
+  background-color: #FFF;
+  width: 326px;
+  padding: 14px 0;
+  color: #0057FF;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid #0057FF;
+
+  font-family: 'Noto', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+}
+/*Кнопки регистрации и входа*/
+
+.img-header-mobile {
+  width: 100%;
+}
+.img-header-desktop {
   display: none;
 }
+/*Header*/
 
-header .HomeMobile {
-  width: 360px;
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-/*Home page/header*/
-
-/*Home/stats*/
-.statistics{
-  min-width: 340px;
+/*Статистика сайта*/
+.statistics_container {
   background-color: #0057FF;
-  display: grid;
-  grid-template-rows: auto;
-  row-gap: 32px;
-  padding: 36px 0;
-}
-
-.stats{
   display: flex;
   flex-direction: column;
   text-align: center;
-  color: #FFFFFF;
+  padding-top: 36px;
+  padding-bottom: 4px;
 }
 
-.stats_text{
+.statistics {
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: #FFF;
+}
+
+.stat_count {
+  font-family: 'Noto', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: 0em;
+}
+
+.stat_text {
+  margin-top: 5px;
+  font-family: 'Noto', sans-serif;
   font-size: 18px;
   font-weight: 400;
+  line-height: 21.6px;
+  letter-spacing: 0em;
 }
+/*Статистика сайта*/
 
-[class*="_count"]{
-  font-size: 48px;
-  font-weight: 300;
-}
-/*Home/stats*/
-
-.views_posts {
-  min-width: 340px;
-  padding: 42px 0px 32px 0px;
-}
-
-.last_messages {
-  margin-left: 16px;
-  margin-top: 24px;
+/*Заголовок последние сообщения*/
+.text-lastmessages {
   display: block;
-  font-style: normal;
-  font-weight: 700;
+  margin-top: 42px;
+  margin-left: 16px;
+  margin-bottom: 8px;
+  font-family: 'Noto', sans-serif;
   font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+/*Заголовок последние сообщения*/
+
+/*Посты*/
+.posts_container {
 }
 
 .post {
-  margin: 0 16px;
+  padding: 16px;
   display: flex;
   flex-direction: row;
 }
 
-.post .user-icon {
+.post_img-user {
+  object-fit: cover;
+  max-width: 52px;
+  width: 100%;
   height: 52px;
-  width: 52px;
   border-radius: 50%;
 }
 
-.post_content {
+.post_information {
   margin-left: 16px;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .post_header {
@@ -142,249 +167,118 @@ header .HomeMobile {
   justify-content: space-between;
 }
 
-.username {
-  font-style: normal;
+.post_user {
+}
+
+.post_username {
+  font-family: 'Noto', sans-serif;
+  font-size: 14px;
   font-weight: 700;
-  font-size: 14px;
   line-height: 18px;
-  color: #1D1E22;
+  letter-spacing: 0em;
+  text-align: left;
 }
 
-.nickname {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
+.post_nickname {
   color: #ABACB1;
+  font-family: 'Noto', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
 }
 
-.time-create {
+.post_time-created {
   width: 52px;
-  margin-top: 2px;
-  
-  font-style: normal;
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 10px;
-  text-align: right;
   color: #ABACB1;
+  font-family: 'Noto', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 10px;
+  letter-spacing: 0em;
+  text-align: right;    
 }
 
 .post_text {
-  margin-top: 5px;  
-
-  font-style: normal;
-  font-weight: 400;
+  margin-top: 5px;
+  min-width: 200px;
+  font-family: 'Noto', sans-serif;
   font-size: 16px;
+  font-weight: 400;
   line-height: 19px;
-  color: #1D1E22;
+  letter-spacing: 0em;
+  text-align: left;
 }
 
 .post_statistics {
   margin-top: 5px;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  font-family: 'Noto', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
   color: #B1B1B1;
-  max-width: 200px;
-  justify-content: space-between;
-  padding-right: 16px;
 }
 
 .post_statistics span {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
   margin-left: 12px;
 }
 
-.repost {
-  border-radius: 10%;
-  cursor: pointer;
-  user-select: none;
+.post_repost {
   display: flex;
+  flex-direction: row;
   align-items: center;
 }
 
-.like {
-  border-radius: 10%;
-  cursor: pointer;
-  user-select: none;
+.post_like {
+  margin-left: 32px;
   display: flex;
+  flex-direction: row;
   align-items: center;
 }
 
-.save {
-  border-radius: 10%;
-  cursor: pointer;
-  user-select: none;
+.post_save {
+  margin-left: 32px;
   display: flex;
+  flex-direction: row;
   align-items: center;
 }
 
-hr {
-  margin: 16px 0 16px;
-  border: 1px solid #E9E9E9;
+.post-hr {
+  height: 1px;
+  background-color: #B1B1B1;
 }
+/*Посты*/
 
-.img_in_post {
-  margin-top: 10px;
-  max-width: 425px;
-  width: 100%;
-  border-radius: 20px;
-}
-
-.actually {
+/*Блок с актуальными*/
+.content_container-currents {
   display: none;
 }
+/*Блок с актуальными*/
 
 /*Footer*/
-.footer_preview {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0px 16px 36px;
+.footer_container {
+display: flex;
+flex-direction: column;
+align-items: center;
 }
 
-.footer_preview span {
-  width: 325px;
+.footer_container span {
   margin-top: 22px;
-
-  text-align: center;
-  font-style: normal;
-  font-weight: 700;
+  font-family: 'Noto', sans-serif;
   font-size: 32px;
+  font-weight: 700;
   line-height: 38px;
+  letter-spacing: 0em;
   text-align: center;
 }
-.footer-buttons {
-  display: flex;
-  flex-direction: column;
-}
+
+/*Кнопки регистрации и входа*/
+/*Стиль находится в HEADER*/
+/*Кнопки регистрации и входа*/
+
 /*Footer*/
-
-/*Modal window*/
-.login_background {
-  position: fixed;
-  z-index: 99;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  justify-content: center;
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in; 
-  -moz-transition: opacity 200ms ease-in;
-  transition: opacity 200ms ease-in;
-  pointer-events: none;
-}
-.login_background:target {
-  opacity: 1;
-  pointer-events: auto;
-  overflow-y: auto;
-}
-.modal_window {
-  padding: 17px 15px 16px 17px;
-  position: relative;
-  width: 340px;
-  z-index: 100;
-  margin: auto;
-  top: 30%;
-  background-color: #FFFFFF;
-  border-radius: 10px;
-}
-.modalHead span {
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 28px;
-  color: #1D1E22;
-}
-.close {
-  float: right;
-  font-family: sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 1;
-  color: #000;
-  opacity: .5;
-  text-decoration: none;
-}
-
-.close:focus, .close:hover {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-  opacity: .75;
-}
-
-.login_input {
-  margin-top: 24px;
-  padding: 7px 16px;
-  height: 38px;
-  width: 296px;
-  display: flex;
-  flex-direction: column;
-  background: #FFFFFF;
-  border: 1px solid #DFDFDF;
-  border-radius: 10px;
-  margin-right: 0;
-}
-
-.login_input input {
-  height: 100%;
-  margin-top: 4px;
-}
-.login_input input:focus {
-  outline: none;
-}
-
-.login_input:focus::placeholder {
-  opacity: 1;
-}
-
-.password_input {
-  padding: 7px 16px;
-  height: 38px;
-  width: 296px;
-  display: flex;
-  flex-direction: column;
-  background: #FFFFFF;
-  border: 1px solid #DFDFDF;
-  border-radius: 10px;
-  margin-right: 0;
-}
-.password_input input{
-  margin-top: 4px;
-  height: 100%;
-}
-.password_input input:focus {
-  outline: none;
-}
-
-.password_input label {
-  font-weight: 400;
-  font-size: 9px;
-  line-height: 11px;
-  color: #B1B1B1;
-}
-.passwordnofound {
-  margin-left: 16px;
-  font-weight: 400;
-  font-size: 9px;
-  line-height: 11px;
-  color: #E40060;
-}
-.nicknofound {
-  margin-left: 16px;
-  font-weight: 400;
-  font-size: 9px;
-  line-height: 11px;
-  color: #E40060;
-}
-form .signin_button {
-  width: 328px;
-}
-/*Modal window*/
