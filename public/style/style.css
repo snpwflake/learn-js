@@ -158,8 +158,6 @@ header {
 .post_information {
   width: 100%;
   margin-left: 16px;
-  display: flex;
-  flex-direction: column;
 }
 
 .post_header {
