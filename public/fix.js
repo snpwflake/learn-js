@@ -29,13 +29,7 @@ function createPost(post) {
   return post1;
 }
 
-fetch('data.json').then((data) => data.text()).then((data) => {
-  const temp = JSON.parse(data);
-  const statics = document.querySelectorAll('.stat_count');
-  statics[0].innerText = temp.static.signUp;
-  statics[1].innerText = temp.static.sendMessages;
-  statics[2].innerText = temp.static.sendToday;
-
+function downloadPosts(temp) {
   const dataPost = document.querySelectorAll('.post');
 
   for (let i = 0; i < dataPost.length; i += 1) {
@@ -56,8 +50,14 @@ fetch('data.json').then((data) => data.text()).then((data) => {
       div.innerHTML = createPost(temp.lastMessages[i]);
     }
   }
-  function intervalLoad() {
-    document.querySelector('style').innerHTML = '';
-  }
-  setTimeout(intervalLoad, 2000, '');
+}
+
+fetch('data.json').then((data) => data.text()).then((data) => {
+  const temp = JSON.parse(data);
+  const statics = document.querySelectorAll('.stat_count');
+  statics[0].innerText = temp.static.signUp;
+  statics[1].innerText = temp.static.sendMessages;
+  statics[2].innerText = temp.static.sendToday;
+
+  setTimeout(downloadPosts, 3000, temp);
 });
