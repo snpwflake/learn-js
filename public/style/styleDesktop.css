@@ -167,6 +167,7 @@
   }
 
   .post_text {
+    margin-top: 4px;
     font-size: 16px;
     font-weight: 400;
     line-height: 19px;
@@ -181,11 +182,11 @@
   }
 
   .post_like {
-    margin-left: 64px;
+    margin-left: 111px;
   }
 
   .post_save {
-    margin-left: 64px;
+    margin-left: 222px;
   }
 
   .post-hr {
@@ -357,4 +358,10 @@
     margin-left: 16px;
   }
   /*Footer*/
+
+  /*Загрузка*/
+  .post_nickname_download {
+    margin-left: 16px;
+  }
+  /*Загрузка*/
 }
