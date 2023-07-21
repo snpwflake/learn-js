@@ -52,6 +52,29 @@ function downloadPosts(temp) {
   }
 }
 
+function topicsData(data) {
+  const buffer = document.querySelectorAll('.topic_container');
+  for (let i = 0; i < buffer.length; i += 1) {
+    buffer[i].innerHTML = `
+        <a href="#${data[i].hashtag}">#${data[i].hashtag}</a>
+        <span>${data[i].messagesCount}</span>`;
+  }
+}
+
+function blogsData(data) {
+  const buffer = document.querySelectorAll('.blog');
+  for (let i = 0; i < buffer.length; i += 1) {
+    buffer[i].innerHTML = `
+    <img class="blog_img" src="${data[i].img}" alt="">
+    <div class="blog_container">
+      <span class="blog_name">${data[i].title}</span>
+      <span class="blog_nickname">${data[i].url}</span>
+    </div>
+    <a href="#${data[i].url}">Читать</a>
+    `;
+  }
+}
+
 fetch('data.json').then((data) => data.text()).then((data) => {
   const temp = JSON.parse(data);
   const statics = document.querySelectorAll('.stat_count');
@@ -60,4 +83,8 @@ fetch('data.json').then((data) => data.text()).then((data) => {
   statics[2].innerText = temp.static.sendToday;
 
   setTimeout(downloadPosts, 3000, temp);
+
+  topicsData(temp.topics);
+
+  blogsData(temp.blogs);
 });
