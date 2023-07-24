@@ -7,7 +7,7 @@
   "lastMessages": [
     {
       "id": 1,
-      "avatar": "/public/img/user_img/roizmangbn_image.jpg",
+      "avatar": "img/user_img/roizmangbn_image.jpg",
       "username": "Винсет Вега",
       "nickname": "@roizmangbn",
       "timecreate": 29077118,
@@ -19,7 +19,7 @@
     },
     {
       "id": 2,
-      "avatar": "/public/img/user_img/user_elonmask.jpg",
+      "avatar": "img/user_img/user_elonmask.jpg",
       "username": "Timur Basyrov",
       "nickname": "@username",
       "timecreate": 1234567,
@@ -31,7 +31,7 @@
     },
     {
       "id": 3,
-      "avatar": "/public/img/user_img/user_burtovoy.jpg",
+      "avatar": "img/user_img/user_burtovoy.jpg",
       "username": "Timur Basyrov",
       "nickname": "@username",
       "timecreate": 123,
@@ -43,7 +43,7 @@
     },
     {
       "id": 4,
-      "avatar": "/public/img/user_img/user_madam.jpg",
+      "avatar": "img/user_img/user_madam.jpg",
       "username": "Timur Basyrov",
       "nickname": "@username",
       "timecreate": 2907718,
@@ -55,7 +55,7 @@
     },
     {
       "id": 5,
-      "avatar": "/public/img/user_img/user_madam.jpg",
+      "avatar": "img/user_img/user_madam.jpg",
       "username": "Timur Basyrov",
       "nickname": "@username",
       "timecreate": 2907718,
@@ -66,6 +66,43 @@
       "img": []
     }
   ],
-  "topics": [],
-  "blogs": []
+  "topics": [
+    {
+      "hashtag": "hello",
+      "messagesCount": "234 сообщения"
+    },
+    {
+      "hashtag": "Dota2",
+      "messagesCount": "234 сообщения"
+    },
+    {
+      "hashtag": "IT",
+      "messagesCount": "234 сообщения"
+    },
+    {
+      "hashtag": "Разработка",
+      "messagesCount": "234 сообщения"
+    },
+    {
+      "hashtag": "обучение",
+      "messagesCount": "234 сообщения"
+    }
+  ],
+  "blogs": [
+    {
+      "img": "img/public_img/habr_public.png",
+      "title": "Пиар, раскрутка",
+      "url": "piaraskrutka"
+    },
+    {
+      "img": "img/public_img/habr_public.png",
+      "title": "Пиар, раскрутка",
+      "url": "piaraskrutka"
+    },
+    {
+      "img": "img/public_img/habr_public.png",
+      "title": "Пиар, раскрутка",
+      "url": "piaraskrutka"
+    }
+  ]
 }
