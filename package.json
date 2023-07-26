@@ -1,30 +1,21 @@
 {
-  "name": "actions-test",
+  "name": "express-hello-world",
   "version": "1.0.0",
-  "type": "module",
-  "description": "",
-  "main": "code.js",
+  "description": "Express Hello World on Render",
+  "main": "app.js",
+  "repository": "https://github.com/render-examples/express-hello-world",
+  "author": "Render Developers",
+  "license": "MIT",
+  "private": false,
   "scripts": {
     "test": "mocha ./tests/*.test.js",
-    "lint": "./node_modules/.bin/eslint **/*.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/burtovoy/actions-test.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/burtovoy/actions-test/issues"
-  },
-  "homepage": "https://github.com/burtovoy/actions-test#readme",
-  "devDependencies": {
-    "eslint": "^8.34.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-plugin-mocha": "^10.1.0",
-    "mocha": "^10.2.0"
+    "lint": "./node_modules/.bin/eslint **/*.js",
+    "start": "node app.js"
   },
   "dependencies": {
-    "chai": "^4.3.7"
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=14"
   }
 }
