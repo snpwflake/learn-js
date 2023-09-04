@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import pkg from 'pg';
 
 const { Client } = pkg;
@@ -12,5 +13,5 @@ const client = new Client({
 });
 
 await client.connect();
-console.log(await client.query(`SELECT * FROM post`));
+console.log(await client.query('SELECT * FROM post'));
 await client.end();
