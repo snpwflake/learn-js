@@ -1,5 +1,4 @@
-/*global describe, it*/
-/*eslint no-undef: "error"*/
+/* eslint-env mocha */
 
 import { assert } from 'chai';
 import platformFilter from '../public/assets/platformFilter.js';
