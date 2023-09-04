@@ -1,3 +1,6 @@
+/*global describe, it*/
+/*eslint no-undef: "error"*/
+
 import { assert } from 'chai';
 import validEmail from '../public/assets/ValidateEmail.js';
 

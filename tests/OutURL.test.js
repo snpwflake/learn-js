@@ -1,3 +1,5 @@
+/*global describe, it*/
+/*eslint no-undef: "error"*/
 import { assert } from 'chai';
 import OutURL from '../public/assets/OutURL.js';
 
