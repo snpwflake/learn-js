@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import pkg from 'pg';
 
 const { Client } = pkg;
