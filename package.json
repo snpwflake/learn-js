@@ -6,7 +6,7 @@
   "main": "code.js",
   "scripts": {
     "test": "mocha ./tests/*.test.js",
-    "lint": "eslint **/*.js"
+    "lint": "eslint \"./**/*.js\""
   },
   "repository": {
     "type": "git",
