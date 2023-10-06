@@ -1,16 +1,16 @@
 import timeLater from './assets/timeLater.js';
 
 function createPost(post) {
-  const post1 = `           <img class="post_img-user" src="${post.userimg}" alt="">
+  const post1 = `<img class="post_img-user" src="" alt="">
   <div class="post_information">
     <div class="post_header">
       <div class="post_user">
-        <div class="post_username">${post.username}</div>
+        <div class="post_username">${post.name} ${post.surname}</div>
         <div class="post_nickname">${post.nickname}</div>
       </div>
       <span class="post_time-created">${timeLater(post.timecreate)}</span>
     </div>
-    <span class="post_text">${post.posttext}</span>
+    <span class="post_text">${post.content}</span>
     <div class="post_statistics">
       <div class="post_repost">
         <svg width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.6875 0.8125L1.40625 4.5625M1.40625 4.5625L4.6875 8.3125M1.40625 4.5625H8.4375C12.1875 4.5625 14.0625 6.4375 14.0625 10.1875" stroke="#ABACB1" stroke-linecap="round" stroke-linejoin="round"></path></svg>
@@ -90,6 +90,7 @@ fetch('data.json').then((data) => data.text()).then((data) => {
   blogsData(temp.blogs);
 });
 
-fetch('/posts.json').then((data) => data.text()).then((data) => {
+fetch('/api/posts').then((data) => data.text()).then((data) => {
+  console.log(data);
   setTimeout(downloadPosts, 3000, data);
 });
