@@ -28,7 +28,7 @@ describe('Функция для проверки валидности email', fu
     const result5 = validEmail('timyr.278gmail.com');
     assert.equal(expectedResult5, result5);
 
-    const expectedResult6 = true;
+    const expectedResult6 = false;
     const result6 = validEmail('timyr.278@https://gmail.com');
     assert.equal(expectedResult6, result6);
   });
