@@ -132,7 +132,7 @@ function SearchURL(href) {
 }
 
 export default function validEmail(email) {
-  const error = 'E-mail не подходит';
+  const error = false;
   let newEmail;
   if (email.indexOf('@') >= 7) {
     newEmail = email.split('@');
@@ -146,7 +146,7 @@ export default function validEmail(email) {
     return error;
   }
   if (SearchURL(newEmail[1])[0] === true) {
-    return 'E-mail подходит';
+    return true;
   }
   return error;
 }

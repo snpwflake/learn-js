@@ -1,4 +1,5 @@
 import timeLater from './assets/timeLater.js';
+import validEmail from './assets/ValidateEmail.js';
 
 function createPost(post) {
   const post1 = `<img class="post_img-user" src="" alt="">
@@ -91,6 +92,60 @@ fetch('data.json').then((data) => data.text()).then((data) => {
 });
 
 fetch('/api/posts').then((data) => data.text()).then((data) => {
-  console.log(data);
   setTimeout(downloadPosts, 3000, data);
 });
+
+const closeSignupForm = document.getElementById('closeSignupForm');
+const openSignupFormHeader = document.getElementById('buttonsignup-header');
+const openSignupFormFooter = document.getElementById('buttonsignup-footer');
+
+closeSignupForm.onclick = function () {
+  document.getElementById('outbox-registration').style.display = 'none';
+};
+
+openSignupFormHeader.onclick = function () {
+  document.getElementById('outbox-registration').style.display = 'flex';
+};
+openSignupFormFooter.onclick = function () {
+  document.getElementById('outbox-registration').style.display = 'flex';
+};
+
+async function createUser(e) {
+  e.stopPropagation();
+  const username = document.getElementById('username').value;
+  const email = document.getElementById('email').value;
+  const pass = document.getElementById('pass').value;
+  const passConfirm = document.getElementById('passconfirm').value;
+  if (passConfirm !== pass) {
+    document.getElementById('wrong_pass').style.display = 'block';
+    return;
+  }
+  document.getElementById('wrong_pass').style.display = 'none';
+  if (!validEmail(email)) {
+    document.getElementById('wrong_email').textContent = 'E-mail не подходит';
+    document.getElementById('wrong_email').style.display = 'block';
+  } else {
+    document.getElementById('wrong_email').style.display = 'none';
+    await fetch('/api/createuser', {
+      method: 'POST',
+      body: JSON.stringify({
+        username,
+        email,
+        pass,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        if (json === 'ERROR') {
+          document.getElementById('wrong_email').textContent = 'E-mail уже зарегистрирован';
+          document.getElementById('wrong_email').style.display = 'block';
+        } else {
+          alert('Вы успешно зарегистрированы!');
+        }
+      });
+  }
+}
+document.getElementById('btncreateuser').addEventListener('click', createUser);
