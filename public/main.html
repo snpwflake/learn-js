@@ -20,7 +20,7 @@
       
       <div class="buttons_up">
         <a class="button_signup" id="buttonsignup-header">Зарегистрироваться</a>
-        <a class="button_signin">Войти</a>
+        <a class="button_signin" id="buttonsignin-header">Войти</a>
       </div>
     
     </div>
@@ -230,8 +230,8 @@
     <div class="footer_container">
       <span>Зарегистрируйтесь и узнайте обо всём первым</span>
       <div class="buttons_up">
-        <a class="button_signup" id="buttonsignup-footer" >Зарегистрироваться</a>
-        <a class="button_signin">Войти</a>
+        <a class="button_signup" id="buttonsignup-footer">Зарегистрироваться</a>
+        <a class="button_signin" id="buttonsignin-footer">Войти</a>
       </div>
     </div>
   </footer>
@@ -266,6 +266,31 @@
         <span id="wrong_pass">Пароль не совпадает</span>
       </div>
       <button class="button_signup" id="btncreateuser">Зарегистрироваться</button>
+    </div>
+  </div>
+</div>
+
+<div class="outbox-login" id="outbox-login">
+  <div class="box">
+    <div class="box-login">
+    <div class="box-header-and-close">
+      <span class="box-header">Авторизация</span>
+      <a class="box-close" id="closeloginForm"><svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2.9 0.800002C2.72089 0.800002 2.54158 0.86823 2.40508 1.00508L1.00508 2.40508C0.73138 2.67878 0.73138 3.12192 1.00508 3.39492L6.11016 8.5L1.00508 13.6051C0.73138 13.8788 0.73138 14.3219 1.00508 14.5949L2.40508 15.9949C2.67878 16.2686 3.12192 16.2686 3.39492 15.9949L8.5 10.8898L13.6051 15.9949C13.8781 16.2686 14.3219 16.2686 14.5949 15.9949L15.9949 14.5949C16.2686 14.3212 16.2686 13.8781 15.9949 13.6051L10.8898 8.5L15.9949 3.39492C16.2686 3.12192 16.2686 2.67808 15.9949 2.40508L14.5949 1.00508C14.3212 0.73138 13.8781 0.73138 13.6051 1.00508L8.5 6.11016L3.39492 1.00508C3.25807 0.86823 3.07911 0.800002 2.9 0.800002Z" fill="black"/>
+        </svg>
+      </a>
+    </div>
+      <div class="input-box">
+        <input id="email-login" class="input-field" type="email" required>
+        <label for="email">Электронная почта</label>
+        <span id="wrong_email-login">E-mail не зарегистрирован</span>
+      </div>
+      <div class="input-box">
+        <input id="pass-login" class="input-field" type="password" required>
+        <label for="password">Пароль</label>
+        <span id="wrong_pass-login">Пароль не совпадает</span>
+      </div>
+      <button class="button_signup" id="btnlogin">Войти</button>
     </div>
   </div>
 </div>

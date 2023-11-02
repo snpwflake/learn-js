@@ -70,6 +70,7 @@ header {
   text-align: center;
   border-radius: 10px;
   border: 1px solid #0057FF;
+  cursor: pointer;
 
   font-family: 'Noto', sans-serif;
   font-size: 18px;
@@ -389,7 +390,7 @@ align-items: center;
 
 /*Авторизация*/
 
-.outbox-registration {
+.outbox-registration, .outbox-login {
   display: none;
   left: 0;
   top: 0;

@@ -110,6 +110,21 @@ openSignupFormFooter.onclick = function () {
   document.getElementById('outbox-registration').style.display = 'flex';
 };
 
+const closeloginForm = document.getElementById('closeloginForm');
+const openloginFormHeader = document.getElementById('buttonsignin-header');
+const openloginFormFooter = document.getElementById('buttonsignin-footer');
+
+closeloginForm.onclick = function () {
+  document.getElementById('outbox-login').style.display = 'none';
+};
+
+openloginFormHeader.onclick = function () {
+  document.getElementById('outbox-login').style.display = 'flex';
+};
+openloginFormFooter.onclick = function () {
+  document.getElementById('outbox-login').style.display = 'flex';
+};
+
 async function createUser(e) {
   e.stopPropagation();
   const username = document.getElementById('username').value;
@@ -149,3 +164,35 @@ async function createUser(e) {
   }
 }
 document.getElementById('btncreateuser').addEventListener('click', createUser);
+
+async function login(e) {
+  e.stopPropagation();
+  document.getElementById('wrong_email-login').style.display = 'none';
+  document.getElementById('wrong_pass-login').style.display = 'none';
+  const email = document.getElementById('email-login').value;
+  const pass = document.getElementById('pass-login').value;
+  await fetch('/api/login', {
+    method: 'POST',
+    body: JSON.stringify({
+      email,
+      pass,
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      if (json === 400) {
+        document.getElementById('wrong_email-login').textContent = 'E-mail не зарегистрирован';
+        document.getElementById('wrong_email-login').style.display = 'block';
+      } else if (json === 401) {
+        document.getElementById('wrong_pass-login').textContent = 'Неправильный пароль';
+        document.getElementById('wrong_pass-login').style.display = 'block';
+      } else {
+        window.location.replace('/feed');
+      }
+    });
+}
+
+document.getElementById('btnlogin').addEventListener('click', login);
