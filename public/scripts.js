@@ -190,9 +190,16 @@ async function login(e) {
         document.getElementById('wrong_pass-login').textContent = 'Неправильный пароль';
         document.getElementById('wrong_pass-login').style.display = 'block';
       } else {
+        document.cookie = `email=${json.email};`;
+        document.cookie = `token=${json.token};`;
         window.location.replace('/feed');
       }
     });
 }
 
 document.getElementById('btnlogin').addEventListener('click', login);
+// Проверка на существующие cookies
+if (document.cookie !== '') {
+  window.location.replace('/feed');
+  alert('Вы уже авторизованы!');
+}

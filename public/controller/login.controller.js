@@ -8,8 +8,7 @@ import db from '../db.js';
 class loginController {
   async login(req, res) {
     const { email, pass } = req.body;
-    console.log(email, pass);
-    const user = await db.query('SELECT password FROM users where email = $1', [email]);
+    const user = await db.query('SELECT password, id FROM users where email = $1', [email]);
     if (user.rows.length === 0) {
       res.json(400);
       return;
@@ -19,7 +18,11 @@ class loginController {
       res.json(401);
       return;
     }
-    res.json('ok');
+    const { id } = user.rows[0];
+    const date = new Date();
+    const token = crypto.randomUUID();
+    const cookies = await db.query('UPDATE sessions SET token = $1, date = $2 WHERE id = $3', [token, date, id]);
+    res.json({ token, email });
   }
 }
 
