@@ -198,8 +198,3 @@ async function login(e) {
 }
 
 document.getElementById('btnlogin').addEventListener('click', login);
-// Проверка на существующие cookies
-if (document.cookie !== '') {
-  window.location.replace('/feed');
-  alert('Вы уже авторизованы!');
-}
