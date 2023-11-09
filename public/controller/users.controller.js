@@ -14,6 +14,7 @@ class userController {
     if (user.rows.length === 0) {
       res.json('OK');
       const userAdd = await db.query('INSERT INTO users (id, email, username, password) values ($1, $2, $3, $4) RETURNING *', [randomId, email, username, hash]);
+      const cookies = await db.query('INSERT INTO sessions (email, id) values ($1, $2)', [email, randomId]);
     } else {
       res.json('ERROR');
     }
