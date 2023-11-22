@@ -12,26 +12,27 @@ import db from './public/db.js';
 const app = express();
 const port = 8080;
 const html = fs.readFileSync('public/main.html', 'utf8');
-const htmlFeed = fs.readFileSync('public/feed_page.html', 'utf8');
 app.use(express.static('public'));
 app.use(express.json());
 app.use(cookieParser());
 
-app.get('/', async (req, res) => {
+app.get('/app', async (req, res) => {
   const { email, token } = req.cookies;
   const result = await db.query('SELECT * FROM sessions WHERE email = $1 AND token = $2', [email, token]);
   if (result.rows.length > 0) {
-    res.type('html').send('<script>window.location.replace(\'/feed\');alert(\'Вы уже авторизованы!\')</script>');
+    res.type('html').send('<script>window.location.replace(\'/app\');alert(\'Вы уже авторизованы!\')</script>');
   } else {
     res.type('html').send(html);
   }
 });
 
-app.get('/feed', async (req, res) => {
+const index = fs.readFileSync('public/index.html', 'utf8');
+
+app.get('/app', async (req, res) => {
   const { email, token } = req.cookies;
   const result = await db.query('SELECT * FROM sessions WHERE email = $1 AND token = $2', [email, token]);
   if (result.rows.length > 0) {
-    res.type('html').send(htmlFeed);
+    res.type('html').send(index);
   } else {
     res.type('html').send('<script>window.location.replace(\'/\');alert(\'Вы не авторизованы!\')</script>');
   }
