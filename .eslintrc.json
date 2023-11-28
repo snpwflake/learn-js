@@ -1,24 +1,30 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "overrides": [
-    ],
-    "parserOptions": {
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
-    "rules": {
-      "import/extensions": ["error", "ignorePackages", {"js": "always"}],
-      "prefer-arrow-callback": 0,
-      "mocha/prefer-arrow-callback": 2,
-      "linebreak-style": 0,
-      "import/no-unresolved": 0
-    },
-    "extends": ["airbnb", "plugin:mocha/recommended"],
-    "plugins": [
-      "mocha"
-    ]
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "overrides": [
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "import/extensions": ["error", "ignorePackages", {"js": "always"}],
+    "prefer-arrow-callback": 0,
+    "mocha/prefer-arrow-callback": 2,
+    "linebreak-style": 0,
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
+  },
 
+  "extends": [
+    "airbnb", 
+    "plugin:mocha/recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended"
+  ],
+  "plugins": [
+    "mocha"
+  ]
 }

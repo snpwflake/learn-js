@@ -1,0 +1,36 @@
+*{
+  margin: 0;
+}
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #F4F5F6;
+  padding-bottom: 54px;
+}
+
+.app-container {
+  display: flex;
+  margin-top: 32px;
+  margin-left: 20px;
+  margin-right: 20px;
+  justify-content: center;
+}
+
+.app-container-second {
+  margin-left: 16px;
+}
+
+@media (max-width:840px) {
+  .app-container {
+    margin: 0;
+  }
+  .app-container-second {
+    display: none;
+    
+  }
+  #root {
+    padding: 48px 0;
+    min-width: 360px;
+  }
+}
