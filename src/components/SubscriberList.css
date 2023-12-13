@@ -1,0 +1,13 @@
+.subscriber-list {
+  text-align: start;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.subcriber-span {
+  margin-top: 7px;
+  margin-left: 16px;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 32px;
+  letter-spacing: 0em;
+}

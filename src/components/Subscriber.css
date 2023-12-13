@@ -1,0 +1,89 @@
+.subscriber {
+  padding: 16px 0 24px;
+  margin: 0 16px;
+  display: flex;
+}
+
+.subscriber img {
+  display: block;
+  max-width: 64px;
+  height: 64px;
+  width: 100%;
+  margin-right: 16px;
+  border-radius: 50%;
+}
+.subscriber-container {
+  width: 100%;
+}
+.subscriber-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.subscriber-user {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-right: 16px;
+}
+.subscriber-username {
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 24px;
+  letter-spacing: 0em;
+  color: #1D1E22;
+}
+.subscriber-nickname {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+  color: #ABACB1;
+}
+.subscriber-read {
+  background-color: #fff;
+  border-radius: 5px;
+  max-width: 140px;
+  width: 100%;
+  height: 24px;
+  color: #0057FF;
+  border: 1px solid #0057FF;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0em;
+}
+.subscriber-status {
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  color: #1D1E22;
+}
+
+.subscriber-hr {
+  display: none;
+}
+
+@media (max-width:840px) {
+  .subscriber img{
+    height: 52px;
+    max-width: 52px;
+  }
+  .subscriber-username {
+    font-size: 14px;
+  }
+  .subscriber-nickname {
+    font-size: 14px;
+  }
+  .subscriber-read {
+    max-width: 69px;
+  }
+
+  .subscriber-hr {
+    display: block;
+    border: 0;
+    border-bottom: 1px solid #E9E9E9;
+  }
+}

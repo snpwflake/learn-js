@@ -4,3 +4,9 @@
   font-weight: 400;
 }
 
+@media (max-width:840px) {
+  :root{
+    background-color: #fff;
+  }
+}
+

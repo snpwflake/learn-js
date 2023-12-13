@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import './ProfileCard.css';
 
-function ProfileCard() {
-  const user = {
+function ProfileCard({ user }) {
+  user = {
     img: '',
     username: 'Timur',
     nickname: '@basyrov',

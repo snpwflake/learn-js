@@ -1,0 +1,35 @@
+.settings-wrap {
+  padding-top: 8px;
+  padding-bottom: 11px;
+  margin-top: 68px;
+  width: 312px;
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: left;
+}
+.settings-wrap-header {
+  margin-left: 16px;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 32px;
+  letter-spacing: 0em;
+  margin-bottom: 8px;
+}
+
+.settings-wrap ul {
+  padding: 0;
+  list-style: none;
+}
+.settings-wrap ul li {
+  padding: 14px 0;
+  margin-left: 16px;
+}
+
+.settings-wrap ul li a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+  color: #1D1E22;
+}

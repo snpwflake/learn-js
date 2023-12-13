@@ -1,21 +1,38 @@
 import './Header.css';
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (
     <header>
       <nav className="menu">
         <ul>
-          <li>
-            <img src="src\components\svgHeader\feed.svg" alt="" />
-            <a href="/feed">Лента</a>
+          <li className="header-li-1">
+            <Link className="link" to="feed" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+              <img src="src\components\svgHeader\feed.svg" alt="" style={{ marginRight: 5 }} />
+              <span>Новости</span>
+            </Link>
           </li>
-          <li>
-            <img src="src\components\svgHeader\profile.svg" alt="" />
-            <a href="/profile">Профиль</a>
+          <li className="header-li-2">
+            <Link className="link" to="profile" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+              <img src="src\components\svgHeader\profile.svg" alt="" style={{ marginRight: 5 }} />
+              <span>Профиль</span>
+            </Link>
           </li>
-          <li>
-            <img src="src\components\svgHeader\settings.svg" alt="" />
-            <a href="/settings">Настройки</a>
+          <li className="header-li-3">
+            <Link className="link" to="settings" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+              <img src="src\components\svgHeader\settings.svg" alt="" style={{ marginRight: 5 }} />
+              <span>Настройки</span>
+            </Link>
+          </li>
+          <li className="header-li-3">
+            <Link className="link" to="/subscribers" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+              <img src="src\components\svgHeader\settings.svg" alt="" style={{ marginRight: 5 }} />
+              <span>
+                Временная кнопка
+                <br />
+                Подписчики
+              </span>
+            </Link>
           </li>
         </ul>
       </nav>
