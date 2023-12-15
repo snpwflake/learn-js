@@ -11,5 +11,6 @@
 @media (max-width:840px) {
   .post-list {
     margin: 0;
+    border-radius: 0;
   }
 }

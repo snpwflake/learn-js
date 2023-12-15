@@ -1,5 +1,5 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import './PostInput.css';
 import { useState } from 'react';
 
@@ -34,8 +34,9 @@ function PostInput() {
   function onEndClick(event) {
     const blockHeight = event.target.clientHeight;
     if (height * 3 >= blockHeight) {
-      setHeight(() => blockHeight);
+      setHeight(() => 362);
       setDisplayStatus(() => 'none');
+      document.querySelector('html').style.overflowY = 'auto';
     } else {
       setHeight(() => 0);
     }
@@ -44,13 +45,14 @@ function PostInput() {
   function openModalPostAdd() {
     setHeight(() => 0);
     setDisplayStatus(() => 'flex');
+    document.querySelector('html').style.overflowY = 'hidden';
   }
 
   return (
     <>
       <div className="post-add-open" onClick={openModalPostAdd}><img src="src\components\svgPost\post.svg" alt="addPost" /></div>
-      <div className="post-add-background" />
-      <div className="post-add" onTouchStart={onStartClick} onTouchMove={onMoveClick} onTouchEnd={onEndClick} style={{ '--h': `${height}px`, display: displayStatus }}>
+      <div className="post-add-background" style={{ display: displayStatus }} />
+      <div className="post-add" onTouchStart={onStartClick} onTouchMove={onMoveClick} onTouchEnd={onEndClick} style={{ '--h': `${height}px`, '--d': displayStatus }}>
         <div className="post-add-close-button" />
         <textarea placeholder="Что нового, name?" className="post-input-text" required value={count} onChange={handleChange} maxLength="360" />
         <div className="post-add-footer">
