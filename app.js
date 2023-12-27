@@ -1,48 +1,79 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import express from 'express';
 import fs from 'fs';
-
 import cookieParser from 'cookie-parser';
-import postRouter from './public/routes/post.routes.js';
-import userRouter from './public/routes/users.routes.js';
-import loginRouter from './public/routes/login.routes.js';
-import db from './public/db.js';
-// import sessionRouter from './public/routes/sessions.routes.js';
+import userRouter from './routes/user.routes.js';
+
+import db from './database.js';
 
 const app = express();
-const port = 8080;
-const html = fs.readFileSync('public/main.html', 'utf8');
+const port = 3000;
+
 app.use(express.static('public'));
 app.use(express.json());
 app.use(cookieParser());
+app.use(express.static('public'));
 
-app.get('/app', async (req, res) => {
-  const { email, token } = req.cookies;
-  const result = await db.query('SELECT * FROM sessions WHERE email = $1 AND token = $2', [email, token]);
-  if (result.rows.length > 0) {
-    res.type('html').send('<script>window.location.replace(\'/app\');alert(\'Вы уже авторизованы!\')</script>');
-  } else {
-    res.type('html').send(html);
-  }
+const html = fs.readFileSync('public/main.html', 'utf8');
+app.get('/', (req, res) => res.type('html').send(html));
+
+app.post('/api/post', async (req, res) => {
+  const cookie = req.cookies.token;
+  const { text } = req.body;
+  const queryId = `
+    SELECT person.user_id
+    FROM person
+    INNER JOIN session
+    ON session.email = person.email
+    WHERE session.token = $1
+  `;
+  const querySendPost = `
+    INSERT INTO post
+    (text, date, user_id, likes, shares, saves)
+    VALUES ($1, $2, $3, $4, $5, $6)
+  `;
+  const id = await db.query(queryId, [cookie]);
+  await db.query(querySendPost, [text, Date(), id.rows[0].user_id, 0, 0, 0]);
+  res.json('OK!');
 });
 
-const index = fs.readFileSync('public/index.html', 'utf8');
-
-app.get('/app', async (req, res) => {
-  const { email, token } = req.cookies;
-  const result = await db.query('SELECT * FROM sessions WHERE email = $1 AND token = $2', [email, token]);
-  if (result.rows.length > 0) {
-    res.type('html').send(index);
-  } else {
-    res.type('html').send('<script>window.location.replace(\'/\');alert(\'Вы не авторизованы!\')</script>');
-  }
+app.get('/api/post', async (req, res) => {
+  const queryPosts = `
+    SELECT post.*, person.nickname, person.username 
+    FROM post
+    INNER JOIN person
+    ON person.id = post.user_id
+  `;
+  const posts = await db.query(queryPosts);
+  res.json(posts.rows);
 });
 
+// app.get('/api/profile', async (req, res) => {
+//   const cookie = req.cookies.token;
+//   const queryProfile = `
+//     SELECT person.*
+//     FROM person
+//     INNER JOIN session
+//     ON session.email = person.email
+//     WHERE session.token = $1
+//   `;
+//   const posts = await db.query(queryProfile, [cookie]);
+//   res.json(posts.rows);
+// });
+
+// app.put('/api/profile', async (req, res) => {
+//   const cookie = req.cookies.token;
+//   const queryProfile = `
+//     SELECT person.*
+//     FROM person
+//     INNER JOIN session
+//     ON session.email = person.email
+//     WHERE session.token = $1
+//   `;
+//   const posts = await db.query(queryProfile, [cookie]);
+//   res.json(posts.rows);
+// });
 app.use('/api', userRouter);
-
-app.use('/api', postRouter);
-
-app.use('/api', loginRouter);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

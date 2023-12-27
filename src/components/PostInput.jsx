@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import './PostInput.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function PostInput() {
   const [height, setHeight] = useState(0);
@@ -47,7 +47,15 @@ function PostInput() {
     setDisplayStatus(() => 'flex');
     document.querySelector('html').style.overflowY = 'hidden';
   }
-
+  async function sendPost() {
+    fetch('/api/post', {
+      method: 'post',
+      body: JSON.stringify({ text: count }),
+      headers: {
+        'content-type': 'application/json',
+      },
+    });
+  }
   return (
     <>
       <div className="post-add-open" onClick={openModalPostAdd}><img src="src\components\svgPost\post.svg" alt="addPost" /></div>
@@ -61,10 +69,11 @@ function PostInput() {
             <div className="text-length-first" style={style}>
               <div className="text-length-second">{count.length}</div>
             </div>
-            <button className="post-send" type="submit">Отправить</button>
+            <button className="post-send" onClick={sendPost} type="submit">Отправить</button>
           </div>
         </div>
       </div>
+
     </>
   );
 }

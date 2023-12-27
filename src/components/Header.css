@@ -49,6 +49,16 @@ header {
   margin-right: 16px;
 }
 
+.link {
+  display:flex; 
+  flex-direction: row; 
+  align-items: center;
+}
+
+.link img {
+  margin-right: 5px;
+}
+
 @media (max-width:840px) {
   header {
     position: fixed;

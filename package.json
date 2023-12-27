@@ -31,12 +31,16 @@
     "vite": "^4.5.0"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.0.1",
     "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.6",
     "express": "^4.18.2",
     "pg": "^8.11.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.20.1"
-  }
+    "react-router-dom": "^6.20.1",
+    "redux": "^5.0.0",
+    "zustand": "^4.4.7"
+  },
+  "proxy": "http://localhost:3000"
 }
