@@ -78,3 +78,6 @@ app.use('/api', userRouter);
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
+
+
+// Сделать деплой, проверить на работоспособность регистрации и авторизацию, добавить проверку куки на заход страницы
