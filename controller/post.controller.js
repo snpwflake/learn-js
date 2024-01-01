@@ -1,3 +1,4 @@
+/* eslint-disable new-cap */
 /* eslint-disable class-methods-use-this */
 import db from '../database.js';
 
