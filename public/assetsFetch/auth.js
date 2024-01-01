@@ -18,6 +18,7 @@ async function login(e) {
     }),
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
+      Accept: 'application/json',
     },
   };
   elements.wrongEmail.style.display = 'none';

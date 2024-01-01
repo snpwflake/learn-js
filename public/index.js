@@ -8,7 +8,6 @@ loadPosts();
 loadTopics();
 loadBlogs();
 loadStatistics();
-
 // Модальное окно регистрации
 document.getElementById('closeSignupForm').onclick = function () {
   document.getElementById('outbox-registration').style.display = 'none';
@@ -29,6 +28,6 @@ document.getElementById('buttonsignin-header').onclick = function () {
 document.getElementById('buttonsignin-footer').onclick = function () {
   document.getElementById('outbox-login').style.display = 'flex';
 };
-
+// Отправка запросов
 document.getElementById('btncreateuser').onclick = createUser;
 document.getElementById('btnlogin').onclick = login;
