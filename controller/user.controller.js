@@ -26,7 +26,7 @@ class userController {
   async updateUser(req, res) {
     const cookie = req.cookies;
     const queryId = `
-      SELECT person.user_id
+      SELECT person.id
       FROM person
       INNER JOIN session
       ON session.email = person.email

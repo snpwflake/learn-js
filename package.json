@@ -41,6 +41,5 @@
     "react-router-dom": "^6.20.1",
     "redux": "^5.0.0",
     "zustand": "^4.4.7"
-  },
-  "proxy": "http://localhost:3000"
+  }
 }

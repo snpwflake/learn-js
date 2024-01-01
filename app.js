@@ -3,6 +3,7 @@ import express from 'express';
 import fs from 'fs';
 import cookieParser from 'cookie-parser';
 import userRouter from './routes/user.routes.js';
+import postRouter from './routes/post.routes.js';
 
 import db from './database.js';
 
@@ -15,37 +16,38 @@ app.use(cookieParser());
 app.use(express.static('public'));
 
 const html = fs.readFileSync('public/main.html', 'utf8');
-app.get('/', (req, res) => res.type('html').send(html));
+// const main = fs.readFileSync('public/index.html', 'utf8');
 
-app.post('/api/post', async (req, res) => {
+app.get('/', async (req, res) => {
   const cookie = req.cookies.token;
-  const { text } = req.body;
   const queryId = `
-    SELECT person.user_id
+    SELECT person.id
     FROM person
     INNER JOIN session
     ON session.email = person.email
     WHERE session.token = $1
   `;
-  const querySendPost = `
-    INSERT INTO post
-    (text, date, user_id, likes, shares, saves)
-    VALUES ($1, $2, $3, $4, $5, $6)
-  `;
   const id = await db.query(queryId, [cookie]);
-  await db.query(querySendPost, [text, Date(), id.rows[0].user_id, 0, 0, 0]);
-  res.json('OK!');
+  if (!id.rows.length) {
+    res.type('html').send(html);
+  } else {
+    res.type('html').send('<script>window.location.replace(\'/feed\');alert(\'Вы уже авторизованы!\')</script>');
+  }
 });
 
-app.get('/api/post', async (req, res) => {
-  const queryPosts = `
-    SELECT post.*, person.nickname, person.username 
-    FROM post
-    INNER JOIN person
-    ON person.id = post.user_id
+app.get('/feed', async (req, res) => {
+  const cookie = req.cookies.token;
+  const queryId = `
+    SELECT person.id
+    FROM person
+    INNER JOIN session
+    ON session.email = person.email
+    WHERE session.token = $1
   `;
-  const posts = await db.query(queryPosts);
-  res.json(posts.rows);
+  const id = await db.query(queryId, [cookie]);
+  if (!id.rows.length) {
+    res.redirect('/');
+  }
 });
 
 // app.get('/api/profile', async (req, res) => {
@@ -74,10 +76,8 @@ app.get('/api/post', async (req, res) => {
 //   res.json(posts.rows);
 // });
 app.use('/api', userRouter);
+app.use('/api', postRouter);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
-
-
-// Сделать деплой, проверить на работоспособность регистрации и авторизацию, добавить проверку куки на заход страницы
