@@ -14,4 +14,13 @@ export default defineConfig({
     },
   },
   plugins: [react()],
+  server: {
+    proxy: {
+      '/api/login': 'http://localhost:3000',
+      '/api/feed': 'http://localhost:3000',
+      '/api/profile': 'http://localhost:3000',
+      '/api/settings': 'http://localhost:3000',
+      '/api/subscribers': 'http://localhost:3000',
+    },
+  },
 });

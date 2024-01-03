@@ -1,5 +1,5 @@
 import './Header.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function Header() {
   return (
@@ -7,26 +7,26 @@ function Header() {
       <nav className="menu">
         <ul>
           <li className="header-li-1">
-            <Link className="link" to="feed" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-              <img src="src\components\svgHeader\feed.svg" alt="" style={{ marginRight: 5 }} />
+            <Link className="link" to="feed">
+              <img src="src\components\svgHeader\feed.svg" alt="" />
               <span>Новости</span>
             </Link>
           </li>
           <li className="header-li-2">
-            <Link className="link" to="profile" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-              <img src="src\components\svgHeader\profile.svg" alt="" style={{ marginRight: 5 }} />
+            <Link className="link" to="profile">
+              <img src="src\components\svgHeader\profile.svg" alt="" />
               <span>Профиль</span>
             </Link>
           </li>
           <li className="header-li-3">
-            <Link className="link" to="settings" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-              <img src="src\components\svgHeader\settings.svg" alt="" style={{ marginRight: 5 }} />
+            <Link className="link" to="settings">
+              <img src="src\components\svgHeader\settings.svg" alt="" />
               <span>Настройки</span>
             </Link>
           </li>
           <li className="header-li-3">
-            <Link className="link" to="/subscribers" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-              <img src="src\components\svgHeader\settings.svg" alt="" style={{ marginRight: 5 }} />
+            <Link className="link" to="/subscribers">
+              <img src="src\components\svgHeader\settings.svg" alt="" />
               <span>
                 Временная кнопка
                 <br />
